@@ -47,10 +47,7 @@ Maze.prototype.turnRight     = function(){
 
 Maze.prototype.isPathForward = function(){
 if(this.miner.dir===0){
-  if (this.miner.row===0){
-    return false;
-  }
-  else if(this._maze[this.miner.col][this.miner.row-1]==F){
+  if (this.miner.row===0 || this._maze[this.miner.col][this.miner.row-1]==F){
     return false;
   }
   else{
@@ -58,10 +55,7 @@ if(this.miner.dir===0){
   }
 }
   if(this.miner.dir===1){
-    if (this.min.col===5){
-      return false;
-    }
-    else if(this._maze[this.miner.col+1][this.miner.row]==F){
+    if (this.min.col===5 || this._maze[this.miner.col+1][this.miner.row]==F){
       return false;
     }
     else{
@@ -69,10 +63,7 @@ if(this.miner.dir===0){
     }
     }
     if(this.miner.dir===2){
-      if (this.min.row===5){
-        return false;
-      }
-      else if(this._maze[this.miner.col][this.miner.row+1]==F){
+      if (this.min.row===5 || this._maze[this.miner.col][this.miner.row+1]==F){
         return false;
       }
       else{
@@ -80,10 +71,7 @@ if(this.miner.dir===0){
       }
       }
       if(this.miner.dir===3){
-        if (this.min.col===0){
-          return false;
-        }
-        else if(this._maze[this.miner.col-1][this.miner.row]==F){
+        if (this.min.col===0 || this._maze[this.miner.col-1][this.miner.row]==F){
           return false;
         }
         else{
@@ -95,10 +83,7 @@ if(this.miner.dir===0){
 
 Maze.prototype.isPathLeft    = function(){
   if(this.miner.dir===0){
-    if (this.miner.col===0){
-      return false;
-    }
-    else if(this._maze[this.miner.col-1][this.miner.row]==F){
+    if (this.miner.col===0 || this._maze[this.miner.col-1][this.miner.row]==F){
       return false;
     }
     else{
@@ -106,10 +91,7 @@ Maze.prototype.isPathLeft    = function(){
     }
   }
     if(this.miner.dir===1){
-      if (this.min.row===0){
-        return false;
-      }
-      else if(this._maze[this.miner.col][this.miner.row-1]==F){
+      if (this.min.row===0 || this._maze[this.miner.col][this.miner.row-1]==F){
         return false;
       }
       else{
@@ -117,10 +99,7 @@ Maze.prototype.isPathLeft    = function(){
       }
       }
       if(this.miner.dir===2){
-        if (this.min.col===5){
-          return false;
-        }
-        else if(this._maze[this.miner.col+1][this.miner.row]==F){
+        if (this.min.col===5 || this._maze[this.miner.col+1][this.miner.row]==F){
           return false;
         }
         else{
@@ -128,10 +107,7 @@ Maze.prototype.isPathLeft    = function(){
         }
         }
         if(this.miner.dir===3){
-          if (this.min.row===5){
-            return false;
-          }
-          else if(this._maze[this.miner.col][this.miner.row+1]==F){
+          if (this.min.row===5 || this._maze[this.miner.col][this.miner.row+1]==F){
             return false;
           }
           else{
@@ -142,10 +118,7 @@ Maze.prototype.isPathLeft    = function(){
 
 Maze.prototype.isPathRight   = function(){
   if(this.miner.dir===0){
-    if (this.miner.col===5){
-      return false;
-    }
-    else if(this._maze[this.miner.col+1][this.miner.row]==F){
+    if (this.miner.col===5 || this._maze[this.miner.col+1][this.miner.row]==F){
       return false;
     }
     else{
@@ -153,10 +126,7 @@ Maze.prototype.isPathRight   = function(){
     }
   }
     if(this.miner.dir===1){
-      if (this.min.row===5){
-        return false;
-      }
-      else if(this._maze[this.miner.col][this.miner.row+1]==F){
+      if (this.min.row===5 || this._maze[this.miner.col][this.miner.row+1]==F){
         return false;
       }
       else{
@@ -164,10 +134,7 @@ Maze.prototype.isPathRight   = function(){
       }
       }
       if(this.miner.dir===2){
-        if (this.min.col===0){
-          return false;
-        }
-        else if(this._maze[this.miner.col-1][this.miner.row]==F){
+        if (this.min.col===0 || this._maze[this.miner.col-1][this.miner.row]==F){
           return false;
         }
         else{
@@ -175,10 +142,7 @@ Maze.prototype.isPathRight   = function(){
         }
         }
         if(this.miner.dir===3){
-          if (this.min.row===0){
-            return false;
-          }
-          else if(this._maze[this.miner.col][this.miner.row-1]==F){
+          if (this.min.row===0 || this._maze[this.miner.col][this.miner.row-1]==F){
             return false;
           }
           else{
@@ -189,16 +153,36 @@ Maze.prototype.isPathRight   = function(){
 
 Maze.prototype.moveForward   = function(){
   switch (this.miner.dir) {
-    case expression:
-
+    case 0:
+    if(this.miner.row!==0&&this._maze[this.miner.col][this.miner.row-1]!=F){
+      this.miner.row=this.miner.row-1;
+    }
       break;
-    default:
+    case 1:
+    if(this.miner.col!==5&&this._maze[this.miner.col+1][this.miner.row]!=F){
+      this.miner.col=this.miner.col+1;
+    }
+      break;
+    case 2:
+    if(this.miner.row!==5&&this._maze[this.miner.col][this.miner.row+1]!=F){
+        this.miner.row=this.miner.row+1;
+      }
+      break;
+    case 3:
+    if(this.miner.col!==0&&this._maze[this.miner.col-1][this.miner.row]!=F){
+          this.miner.col=this.miner.col-1;
+        }
+      break;
+   }
 
-  }
+ };
 
-};
 
 Maze.prototype.notDone       = function(){
+  if (this._maze[this.miner.col][this.miner.row]===this._maze[maze.col][maze.row]) {
+    return false;
+  }
+  else return true;
 };
 
 module.exports = Maze;
