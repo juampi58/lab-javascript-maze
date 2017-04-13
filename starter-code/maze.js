@@ -80,7 +80,7 @@ if(this.miner.dir===0){
       }
       }
       if(this.miner.dir===3){
-        if (this.min.col===1){
+        if (this.min.col===0){
           return false;
         }
         else if(this._maze[this.miner.col-1][this.miner.row]==F){
@@ -95,10 +95,10 @@ if(this.miner.dir===0){
 
 Maze.prototype.isPathLeft    = function(){
   if(this.miner.dir===0){
-    if (this.miner.row===0){
+    if (this.miner.col===0){
       return false;
     }
-    else if(this._maze[this.miner.col][this.miner.row-1]==F){
+    else if(this._maze[this.miner.col-1][this.miner.row]==F){
       return false;
     }
     else{
@@ -106,10 +106,10 @@ Maze.prototype.isPathLeft    = function(){
     }
   }
     if(this.miner.dir===1){
-      if (this.min.col===5){
+      if (this.min.row===0){
         return false;
       }
-      else if(this._maze[this.miner.col+1][this.miner.row]==F){
+      else if(this._maze[this.miner.col][this.miner.row-1]==F){
         return false;
       }
       else{
@@ -117,10 +117,10 @@ Maze.prototype.isPathLeft    = function(){
       }
       }
       if(this.miner.dir===2){
-        if (this.min.row===5){
+        if (this.min.col===5){
           return false;
         }
-        else if(this._maze[this.miner.col][this.miner.row+1]==F){
+        else if(this._maze[this.miner.col+1][this.miner.row]==F){
           return false;
         }
         else{
@@ -128,23 +128,73 @@ Maze.prototype.isPathLeft    = function(){
         }
         }
         if(this.miner.dir===3){
-          if (this.min.col===1){
+          if (this.min.row===5){
             return false;
           }
-          else if(this._maze[this.miner.col-1][this.miner.row]==F){
+          else if(this._maze[this.miner.col][this.miner.row+1]==F){
             return false;
           }
           else{
             return true;
           }
           }
-
 };
 
 Maze.prototype.isPathRight   = function(){
+  if(this.miner.dir===0){
+    if (this.miner.col===5){
+      return false;
+    }
+    else if(this._maze[this.miner.col+1][this.miner.row]==F){
+      return false;
+    }
+    else{
+      return true;
+    }
+  }
+    if(this.miner.dir===1){
+      if (this.min.row===5){
+        return false;
+      }
+      else if(this._maze[this.miner.col][this.miner.row+1]==F){
+        return false;
+      }
+      else{
+        return true;
+      }
+      }
+      if(this.miner.dir===2){
+        if (this.min.col===0){
+          return false;
+        }
+        else if(this._maze[this.miner.col-1][this.miner.row]==F){
+          return false;
+        }
+        else{
+          return true;
+        }
+        }
+        if(this.miner.dir===3){
+          if (this.min.row===0){
+            return false;
+          }
+          else if(this._maze[this.miner.col][this.miner.row-1]==F){
+            return false;
+          }
+          else{
+            return true;
+          }
+          }
 };
 
 Maze.prototype.moveForward   = function(){
+  switch (this.miner.dir) {
+    case expression:
+
+      break;
+    default:
+
+  }
 
 };
 
