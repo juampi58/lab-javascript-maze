@@ -28,7 +28,7 @@ Maze.prototype.turnLeft= function(){
   }
 };
 
-Maze.prototype.turnRight     = function(){
+Maze.prototype.turnRight = function(){
   switch (this.min.dir) {
     case 0:
       this.miner.dir=1;
@@ -151,34 +151,26 @@ Maze.prototype.isPathRight   = function(){
           }
 };
 
-Maze.prototype.moveForward   = function(){
+Maze.prototype.moveForward = function(){
+if (maze.isPathForward()){
   switch (this.miner.dir) {
     case 0:
-    if(this.miner.row!==0&&this._maze[this.miner.col][this.miner.row-1]!=F){
       this.miner.row=this.miner.row-1;
-    }
       break;
     case 1:
-    if(this.miner.col!==5&&this._maze[this.miner.col+1][this.miner.row]!=F){
       this.miner.col=this.miner.col+1;
-    }
       break;
     case 2:
-    if(this.miner.row!==5&&this._maze[this.miner.col][this.miner.row+1]!=F){
         this.miner.row=this.miner.row+1;
-      }
       break;
     case 3:
-    if(this.miner.col!==0&&this._maze[this.miner.col-1][this.miner.row]!=F){
           this.miner.col=this.miner.col-1;
-        }
       break;
    }
+ }
+};
 
- };
-
-
-Maze.prototype.notDone       = function(){
+Maze.prototype.notDone = function(){
   if (this._maze[this.miner.col][this.miner.row]===this._maze[maze.col][maze.row]) {
     return false;
   }
